@@ -28,7 +28,8 @@ def predict():
             df = pd.DataFrame([response])
             prediction = lr_model.predict(df)
             result = 'Approved' if str(prediction)[2] == 'Y' else 'Rejected'
-            return render_template('home.html', prediction=result)
+            prob_1 = np.round(lr_model.predict_proba(df).ravel()[1], 2)
+            return render_template('home.html', prediction=result, probability=prob_1)
         except Exception as e:
             return render_template('home.html', error=str(e))
     if request.method == 'GET':

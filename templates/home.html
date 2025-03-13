@@ -100,11 +100,11 @@
         {% if prediction is not none %}
             {% if prediction == 'Approved' %}
                 <h3 class="text-center" style="background-color: grey; color: rgb(76, 227, 114); padding: 10px;">
-                Loan Approved ✅
+                Loan Approved ✅ {{ probability }}%
                 </h3>
             {% else %}
                 <h3 class="text-center" style="background-color: grey; color: rgb(234, 76, 76); padding: 10px;">
-                Loan Rejected ❌
+                Loan Rejected ❌ {{ probability }}%
                 </h3>
             {% endif %}
         {% endif %}
