@@ -24,7 +24,7 @@ def predict():
             response = {key: float(data[key]) if key in numeric_cols else data[key] for key in features}
             #response = {key: data[key] for key in features} 
             #response = np.array(response).reshape(1, -1)
-            lr_model = joblib.load("logistic.pkl")
+            lr_model = joblib.load("rf_loan_prediction.pkl")
             df = pd.DataFrame([response])
             prediction = lr_model.predict(df)
             result = 'Approved' if str(prediction)[2] == 'Y' else 'Rejected'
